@@ -13,6 +13,10 @@ export type HomeParamList = {
   HomeScreen: undefined;
 };
 
+export type SignUpParamList = {
+  SignUpScreen: undefined;
+};
+
 export type TabOneParamList = {
   TabOneScreen: undefined;
 };

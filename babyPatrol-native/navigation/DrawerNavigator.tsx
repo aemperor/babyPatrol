@@ -1,11 +1,12 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-
+// options={{ headerTitle: 'Home' }}
 import HomeScreen from '../screens/HomeScreen';
+import SignUpScreen from '../screens/SignUpScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { TabOneParamList, TabTwoParamList, HomeParamList } from '../types';
+import { TabOneParamList, TabTwoParamList, HomeParamList, SignUpParamList } from '../types';
 
 const Drawer = createDrawerNavigator();
 
@@ -16,6 +17,10 @@ export default function DrawerNavigator() {
       <Drawer.Screen
         name="Home"
         component={HomeNavigator}
+      />
+      <Drawer.Screen
+        name="Sign Up"
+        component={SignUpNavigator}
       />
       <Drawer.Screen
         name="TabTwo"
@@ -36,9 +41,21 @@ function HomeNavigator() {
       <HomeStack.Screen
         name="HomeScreen"
         component={HomeScreen}
-        options={{ headerTitle: 'Home' }}
       />
     </HomeStack.Navigator>
+  );
+}
+
+const SignUpStack = createStackNavigator<SignUpParamList>();
+
+function SignUpNavigator() {
+  return (
+    <SignUpStack.Navigator>
+      <SignUpStack.Screen
+        name="SignUpScreen"
+        component={SignUpScreen}
+      />
+    </SignUpStack.Navigator>
   );
 }
 
