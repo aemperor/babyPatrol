@@ -7,9 +7,8 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import HomeScreen from '../screens/HomeScreen';
 import SignUpScreen from '../screens/SignUpScreen';
-import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList, SignUpParamList, HomeParamList } from '../types';
+import { BottomTabParamList, TabTwoParamList, SignUpParamList, HomeParamList } from '../types';
 import { styles } from '../styles/BaseStyle';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -63,7 +62,10 @@ function HomeNavigator() {
       <HomeStack.Screen
         name="Home"
         component={HomeScreen}
-        options={{ headerTitle: 'Home' }}
+        options={{
+          headerTitle: 'Home',
+          headerStyle: styles.header
+        }}
       />
     </HomeStack.Navigator>
   );
@@ -86,20 +88,6 @@ function SignUpNavigator() {
   );
 }
 
-const TabOneStack = createStackNavigator<TabOneParamList>();
-
-function TabOneNavigator() {
-  return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
-      />
-    </TabOneStack.Navigator>
-  );
-}
-
 const TabTwoStack = createStackNavigator<TabTwoParamList>();
 
 function TabTwoNavigator() {
@@ -108,7 +96,10 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="TabTwoScreen"
         component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+        options={{
+          headerTitle: 'Baby Patrol',
+          headerStyle: styles.header
+        }}
       />
     </TabTwoStack.Navigator>
   );
