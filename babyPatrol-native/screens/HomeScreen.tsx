@@ -9,7 +9,6 @@ import { styles } from '../styles/BaseStyle';
 export default function HomeScreen({ username, navigation }: { username:string, navigation:any }) {
   return (
     <View style={styles.container}> 
-      <BabyPatrolHamburgerHeader navigation={navigation} />
       <Text style={styles.title}>Welcome, {username}!</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <HomeScreenInfo path="/screens/HomeScreen.tsx" /> 

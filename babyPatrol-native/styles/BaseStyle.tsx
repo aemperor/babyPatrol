@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   button: {
     width: 200,
     height: 50,
-    backgroundColor: 'deepskyblue',
+    backgroundColor: '#1CD1DD',
     textAlign: 'center',
     borderRadius: 40,
     alignItems: 'center',
@@ -37,7 +37,8 @@ export const styles = StyleSheet.create({
     width: '80%',
   },  
   header: {
-    marginTop: Constants.statusBarHeight,
+    height: 100,
+    backgroundColor: '#1CD1DD',
   },
   hamgburgerIcon: {
     marginBottom: 15,
@@ -93,6 +94,14 @@ export const styles = StyleSheet.create({
   },
   helpLinkText: {
     textAlign: 'center',
+  },
+  link: {
+    marginTop: 15,
+    paddingVertical: 15,
+  },
+  linkText: {
+    fontSize: 14,
+    color: '#2e78b7',
   },
 });
 

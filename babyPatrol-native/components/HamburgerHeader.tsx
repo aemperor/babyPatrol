@@ -5,8 +5,8 @@ import { Icon } from 'native-base';
 
 import { styles } from '../styles/BaseStyle';
 
-export default function BabyPatrolHamburgerHeader({ navigation }: {navigation : any}) {
+export default function BabyPatrolHamburgerHeader({ navigation } : { navigation : any}) {
   return (
-    <Header style={styles.header} leftComponent={<Icon style={styles.hamgburgerIcon} name="menu" onPress={() => navigation.openDrawer()} />} />
+    <Header leftComponent={<Icon style={styles.hamgburgerIcon} name="menu" onPress={() => navigation.openDrawer()} />} />
   )
 }

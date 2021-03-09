@@ -6,9 +6,11 @@ import * as React from 'react';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import HomeScreen from '../screens/HomeScreen';
+import SignUpScreen from '../screens/SignUpScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList, HomeParamList } from '../types';
+import { BottomTabParamList, TabOneParamList, TabTwoParamList, SignUpParamList, HomeParamList } from '../types';
+import { styles } from '../styles/BaseStyle';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -19,6 +21,13 @@ export default function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName="Home"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      <BottomTab.Screen
+        name="Sign Up"
+        component={SignUpNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+        }}
+      />
       <BottomTab.Screen
         name="Home"
         component={HomeNavigator}
@@ -52,11 +61,28 @@ function HomeNavigator() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
-        name="HomeScreen"
+        name="Home"
         component={HomeScreen}
         options={{ headerTitle: 'Home' }}
       />
     </HomeStack.Navigator>
+  );
+}
+
+const SignUpStack = createStackNavigator<SignUpParamList>();
+
+function SignUpNavigator() {
+  return (
+    <SignUpStack.Navigator>
+      <SignUpStack.Screen
+        name="SignUpScreen"
+        component={SignUpScreen}
+        options={{
+          headerTitle: 'Baby Patrol',
+          headerStyle: styles.header
+        }}
+      />
+    </SignUpStack.Navigator>
   );
 }
 

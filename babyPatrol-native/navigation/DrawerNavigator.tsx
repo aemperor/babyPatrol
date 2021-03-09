@@ -1,12 +1,14 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack';
 import * as React from 'react';
+import { Icon } from 'native-base';
 // options={{ headerTitle: 'Home' }}
 import HomeScreen from '../screens/HomeScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { TabOneParamList, TabTwoParamList, HomeParamList, SignUpParamList } from '../types';
+import { styles } from '../styles/BaseStyle';
 
 const Drawer = createDrawerNavigator();
 
@@ -39,8 +41,14 @@ function HomeNavigator() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
-        name="HomeScreen"
+        name="Home"
         component={HomeScreen}
+        options={{
+          headerStyle: styles.header,
+          headerLeft: (navigation) => (
+            <Icon style={styles.hamgburgerIcon} name="menu" onPress={() => navigation.openDrawer()} />
+          )
+        }}
       />
     </HomeStack.Navigator>
   );
