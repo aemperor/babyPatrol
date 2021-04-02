@@ -1,5 +1,8 @@
 import * as express from 'express';
 import * as http from 'http';
+import { GraphQlSchema } from './schema';
+import { graphqlHTTP } from 'express-graphql';
+import { buildSchema } from 'graphql';
 
 class App {
   public app: express.Application;
@@ -16,11 +19,27 @@ class App {
 
     // Initialize Middlewares here
     // NOTE: Middleware ordering is important and must be maintained!
+    this.initializeRouteMiddlewares();
+  }
+
+  private initializeRouteMiddlewares() : void {
+    const builtSchema = buildSchema(GraphQlSchema);
+
+    const root = {
+      hello: () => {
+        return 'Hello world!';
+      },
+    };
+
+    this.app.use('/graphql', graphqlHTTP({
+      schema: builtSchema,
+      rootValue: root,
+      graphiql: true,
+    }));
   }
 
   public createServer() {
     http.createServer(this.app).listen(this.port);
-
     console.log(`App listening on port ${this.port}`);
   }
 
