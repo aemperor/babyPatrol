@@ -1,0 +1,15 @@
+{
+  "name": "babypatrol-api",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aemperor/babyPatrol/tree/master/babyPatrol-api"
+  },
+  "author": "Alexis Emperador",
+  "license": "MIT"
+}
