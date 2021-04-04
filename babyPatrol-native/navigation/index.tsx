@@ -15,10 +15,13 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      theme={DefaultTheme}>
       <RootNavigator />
     </NavigationContainer>
   );
+
+  // TODO: support for dark/light theme later
+  // theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
 }
 
 // A root stack navigator is often used for displaying modals on top of all other content

@@ -13,7 +13,7 @@ import { TextInput } from 'react-native-gesture-handler';
 export default function SignUpScreenInfo({ navigation }: { navigation: any }) {
 
   return (
-    <View>
+    <View style={styles.container}>
         <TextInput style={ styles.input }
           placeholder="Create username"
           returnKeyType="next"
