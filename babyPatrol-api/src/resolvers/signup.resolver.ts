@@ -1,17 +1,25 @@
+import { Service } from 'typedi';
+
 import { Arg, Mutation, Resolver } from "type-graphql";
 import { SignUpData } from "../data/signup.data";
 import SignUp from '../schemas/signup.schema';
-
+import { SignUpService } from "../service/signup.service";
+@Service()
 @Resolver(of => SignUp)
-export default class {
+export class SignUpResolver {
+
+  constructor(private readonly signUpService : SignUpService) {
+
+  }
+
   @Mutation(returns => SignUp, { nullable: false })
-  SignUp(
+  async SignUp(
     @Arg('username') username: string,
     @Arg('firstname') firstname: string,
     @Arg('lastname') lastname: string,
     @Arg('password') password: string,
     @Arg('email') email: string
-  ) : SignUpData {
+  ) : Promise<SignUpData> {
     const signUpData : SignUpData = {
       username,
       firstname,
@@ -19,6 +27,8 @@ export default class {
       password,
       email,
     }
+
+    await this.signUpService.signUp(signUpData);
     
     return signUpData;
   }

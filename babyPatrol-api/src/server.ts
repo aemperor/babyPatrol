@@ -1,40 +1,40 @@
 import App from './app';
+import { Container } from 'typedi';
 import { config } from 'dotenv';
 import { buildSchema } from 'type-graphql';
-import SignUpResolver from './resolvers/signup.resolver';
+import { SignUpResolver } from './resolvers/signup.resolver';
 import { GraphQLSchema } from 'graphql';
-import HealthCheckResolver from './resolvers/healthcheck.resolver';
+import { HealthCheckResolver } from './resolvers/healthcheck.resolver';
+import { ConfigurationObject } from './object/configuration.obj';
+import { HeaderObject } from './object/header.obj';
 // import { ConfigurationObject } from './object/configuration.obj';
 // import HealthCheckController from './controller/healthcheck.controller';
 // import { HealthCheckService } from './service/healthcheck.service';
 // import { LoggerService } from './service/logger.service';
 
-const DEFAULT_PORT = 3000;
+const DEFAULT_PORT = 3400;
 const DEFAULT_TIMEOUT = 5; // in seconds
 
-if (!process.env.DOTENV_PATH) {
-    process.env.DOTENV_PATH = `./env/${process.env.ENVIRONMENT}.env`;
+if (!process.env.BABY_PATROL_DOTENV_PATH) {
+    process.env.BABY_PATROL_DOTENV_PATH = `./env/${process.env.ENVIRONMENT}.env`;
 }
 config( { path : process.env.DOTENV_PATH } );
-
-// const configurationDto : ConfigurationObject = new ConfigurationObject(process.env);
 
 const port = process.env.EXPRESS_HTTP_PORT ? Number(process.env.EXPRESS_HTTP_PORT) : DEFAULT_PORT;
 const timeout = process.env.EXPRESS_TIMEOUT ? Number(process.env.EXPRESS_TIMEOUT) : DEFAULT_TIMEOUT;
 
-// const loggerService : LoggerService = new LoggerService(configurationDto);
 
 async function getSchema() : Promise<GraphQLSchema> {
   const schema = await buildSchema({
     resolvers: [
       HealthCheckResolver,
-      SignUpResolver
+      SignUpResolver,
     ],
+    container: Container,
     emitSchemaFile: true,
   }).catch((ex) => {
     throw ex;
   });
-  console.log('schema', schema);
 
   return schema;
 }
@@ -46,8 +46,6 @@ getSchema().then((schema) => {
     port,
     timeout
   );
-
-  console.log('app is', app);
 
   if (app) {
     app.createServer();
