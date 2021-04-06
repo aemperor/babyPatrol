@@ -3,6 +3,7 @@ import { config } from 'dotenv';
 import { buildSchema } from 'type-graphql';
 import SignUpResolver from './resolvers/signup.resolver';
 import { GraphQLSchema } from 'graphql';
+import HealthCheckResolver from './resolvers/healthcheck.resolver';
 // import { ConfigurationObject } from './object/configuration.obj';
 // import HealthCheckController from './controller/healthcheck.controller';
 // import { HealthCheckService } from './service/healthcheck.service';
@@ -25,7 +26,10 @@ const timeout = process.env.EXPRESS_TIMEOUT ? Number(process.env.EXPRESS_TIMEOUT
 
 async function getSchema() : Promise<GraphQLSchema> {
   const schema = await buildSchema({
-    resolvers: [SignUpResolver],
+    resolvers: [
+      HealthCheckResolver,
+      SignUpResolver
+    ],
     emitSchemaFile: true,
   }).catch((ex) => {
     throw ex;
@@ -44,15 +48,17 @@ getSchema().then((schema) => {
   );
 
   console.log('app is', app);
+
+  if (app) {
+    app.createServer();
+  } else {
+    console.error('There was an error creating the server!');
+  }
 }).catch((ex) => {
   throw ex;
 });
 
-if (app) {
-  app.createServer();
-} else {
-  console.error('we have a problem');
-}
+
 
 
 
