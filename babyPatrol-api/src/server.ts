@@ -1,25 +1,15 @@
 import App from './app';
 import { container } from 'tsyringe';
-// import { config } from 'dotenv';
 import { buildSchema } from 'type-graphql';
-import { SignUpResolver } from './resolvers/signup.resolver';
+import { SignUpResolver } from './resolver/signup.resolver';
 import { GraphQLSchema } from 'graphql';
-import { HealthCheckResolver } from './resolvers/healthcheck.resolver';
+import { HealthCheckResolver } from './resolver/healthcheck.resolver';
 import { ConfigurationObject } from './object/configuration.obj';
 import { HeaderObject } from './object/header.obj';
-// import { ConfigurationObject } from './object/configuration.obj';
-// import HealthCheckController from './controller/healthcheck.controller';
-// import { HealthCheckService } from './service/healthcheck.service';
-// import { LoggerService } from './service/logger.service';
 
 const DEFAULT_PORT = 3400;
 const DEFAULT_TIMEOUT = 5; // in seconds
 
-// if (!process.env.BABY_PATROL_DOTENV_PATH) {
-//     process.env.BABY_PATROL_DOTENV_PATH = `./env/${process.env.ENVIRONMENT}.env`;
-// }
-
-// config( { path : process.env.BABY_PATROL_DOTENV_PATH } );
 require('dotenv').config( { path : process.env.BABY_PATROL_DOTENV_PATH } );
 
 container.register<ConfigurationObject>('Configuration', { useValue: new ConfigurationObject(process.env) });

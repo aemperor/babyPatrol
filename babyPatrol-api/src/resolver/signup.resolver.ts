@@ -2,7 +2,7 @@ import { container, singleton } from 'tsyringe';
 
 import { Arg, Mutation, Resolver } from "type-graphql";
 import { SignUpData } from "../data/signup.data";
-import SignUp from '../schemas/signup.schema';
+import SignUp from '../schema/signup.schema';
 import { SignUpService } from "../service/signup.service";
 @singleton()
 @Resolver(of => SignUp)

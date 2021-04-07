@@ -1,7 +1,7 @@
 import { singleton } from 'tsyringe';
 import { Query, Resolver } from 'type-graphql';
 import { HealthCheckData } from '../data/healthcheck.data';
-import HealthCheck from '../schemas/healthcheck.schema';
+import HealthCheck from '../schema/healthcheck.schema';
 
 
 @singleton()
