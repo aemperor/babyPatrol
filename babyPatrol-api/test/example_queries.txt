@@ -1,0 +1,22 @@
+mutation {
+  SignUp(
+    email: "fancyTragedy@test.com", 
+    firstname: "fancy",
+    lastname: "tragedy",
+    username: "fancy.tragedy",
+    password: "tragedy"
+  ) {
+    email,
+    password,
+    username,
+    firstname,
+    lastname
+  }
+}
+
+
+query {
+  HealthCheck {
+    status
+  }
+}
