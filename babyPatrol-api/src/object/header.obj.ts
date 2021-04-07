@@ -1,6 +1,6 @@
-import { Service } from 'typedi';
+import { injectable } from 'tsyringe';
 
-@Service()
+@injectable()
 export class HeaderObject {
 
 }

@@ -1,15 +1,16 @@
-import { Service } from 'typedi';
+import { container, singleton } from 'tsyringe';
 
 import { Arg, Mutation, Resolver } from "type-graphql";
 import { SignUpData } from "../data/signup.data";
 import SignUp from '../schemas/signup.schema';
 import { SignUpService } from "../service/signup.service";
-@Service()
+@singleton()
 @Resolver(of => SignUp)
 export class SignUpResolver {
+  private signUpService : SignUpService;
 
-  constructor(private readonly signUpService : SignUpService) {
-
+  constructor() {
+    this.signUpService = container.resolve(SignUpService);
   }
 
   @Mutation(returns => SignUp, { nullable: false })

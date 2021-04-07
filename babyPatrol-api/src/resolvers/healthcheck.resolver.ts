@@ -1,10 +1,10 @@
-import { Service } from 'typedi'
+import { singleton } from 'tsyringe';
 import { Query, Resolver } from 'type-graphql';
 import { HealthCheckData } from '../data/healthcheck.data';
 import HealthCheck from '../schemas/healthcheck.schema';
 
 
-@Service()
+@singleton()
 @Resolver()
 export class HealthCheckResolver {
   @Query(returns => HealthCheck)

@@ -1,6 +1,6 @@
 import App from './app';
-import { Container } from 'typedi';
-import { config } from 'dotenv';
+import { container } from 'tsyringe';
+// import { config } from 'dotenv';
 import { buildSchema } from 'type-graphql';
 import { SignUpResolver } from './resolvers/signup.resolver';
 import { GraphQLSchema } from 'graphql';
@@ -15,10 +15,14 @@ import { HeaderObject } from './object/header.obj';
 const DEFAULT_PORT = 3400;
 const DEFAULT_TIMEOUT = 5; // in seconds
 
-if (!process.env.BABY_PATROL_DOTENV_PATH) {
-    process.env.BABY_PATROL_DOTENV_PATH = `./env/${process.env.ENVIRONMENT}.env`;
-}
-config( { path : process.env.DOTENV_PATH } );
+// if (!process.env.BABY_PATROL_DOTENV_PATH) {
+//     process.env.BABY_PATROL_DOTENV_PATH = `./env/${process.env.ENVIRONMENT}.env`;
+// }
+
+// config( { path : process.env.BABY_PATROL_DOTENV_PATH } );
+require('dotenv').config( { path : process.env.BABY_PATROL_DOTENV_PATH } );
+
+container.register<ConfigurationObject>('Configuration', { useValue: new ConfigurationObject(process.env) });
 
 const port = process.env.EXPRESS_HTTP_PORT ? Number(process.env.EXPRESS_HTTP_PORT) : DEFAULT_PORT;
 const timeout = process.env.EXPRESS_TIMEOUT ? Number(process.env.EXPRESS_TIMEOUT) : DEFAULT_TIMEOUT;
@@ -30,7 +34,7 @@ async function getSchema() : Promise<GraphQLSchema> {
       HealthCheckResolver,
       SignUpResolver,
     ],
-    container: Container,
+    container: { get: someClass => container.resolve(someClass as any) },
     emitSchemaFile: true,
   }).catch((ex) => {
     throw ex;
