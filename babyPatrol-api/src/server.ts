@@ -6,12 +6,14 @@ import { GraphQLSchema } from 'graphql';
 import { HealthCheckResolver } from './resolver/healthcheck.resolver';
 import { ConfigurationObject } from './object/configuration.obj';
 import { HeaderObject } from './object/header.obj';
+import { LoggerService } from './service/logger.service';
 
 const DEFAULT_PORT = 3400;
 const DEFAULT_TIMEOUT = 5; // in seconds
 
 require('dotenv').config( { path : process.env.BABY_PATROL_DOTENV_PATH } );
 
+// register custom injections
 container.register<ConfigurationObject>('Configuration', { useValue: new ConfigurationObject(process.env) });
 
 const port = process.env.EXPRESS_HTTP_PORT ? Number(process.env.EXPRESS_HTTP_PORT) : DEFAULT_PORT;
