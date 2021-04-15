@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     borderWidth: 2,
     padding: 10,
     margin: 10,
-    backgroundColor: '#ccc',
+    backgroundColor: '#FFFFFF',
   },
   button: {
     width: 200,
@@ -33,11 +33,13 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: '#000000',
   },
   separator: {
     marginVertical: 30,
     height: 1,
     width: '80%',
+    color: '#000000'
   },  
   header: {
     height: 100,
@@ -54,6 +56,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   contentContainer: {
+    backgroundColor: '#FFFFFF',
     paddingTop: 30,
   },
   welcomeContainer: {
@@ -71,6 +74,7 @@ export const styles = StyleSheet.create({
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
+    backgroundColor: '#FFFFFF'
   },
   homeScreenFilename: {
     marginVertical: 7,
@@ -91,6 +95,7 @@ export const styles = StyleSheet.create({
     marginTop: 15,
     marginHorizontal: 20,
     alignItems: 'center',
+    backgroundColor: '#FFFFFF'
   },
   helpLink: {
     paddingVertical: 15,
