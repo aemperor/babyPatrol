@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: Constants.statusBarHeight, 
-    backgroundColor: '#FFFFF',
+    backgroundColor: '#FFFFFF',
   },
   input: {
     height: 40,
