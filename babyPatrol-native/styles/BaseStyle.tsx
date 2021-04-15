@@ -15,7 +15,8 @@ export const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 2,
     padding: 10,
-    margin: 10
+    margin: 10,
+    backgroundColor: '#ccc',
   },
   button: {
     width: 200,
