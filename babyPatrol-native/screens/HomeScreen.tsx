@@ -1,12 +1,11 @@
 import * as React from 'react';
 
-import BabyPatrolHamburgerHeader from '../components/HamburgerHeader';
 import HomeScreenInfo from '../components/HomeScreenInfo';
 import { Text, View } from '../components/Themed';
 
 import { styles } from '../styles/BaseStyle';
 
-export default function HomeScreen({ username, navigation }: { username:string, navigation:any }) {
+export default function HomeScreen({ username }: { username:string }) {
   return (
     <View style={styles.container}> 
       <Text style={styles.title}>Welcome, {username}!</Text>

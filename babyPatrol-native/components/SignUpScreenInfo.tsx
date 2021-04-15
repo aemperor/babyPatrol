@@ -1,16 +1,13 @@
-import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 
-import Colors from '../constants/Colors';
-import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
 
 import { styles } from '../styles/BaseStyle';
 import { TextInput } from 'react-native-gesture-handler';
 
 
-export default function SignUpScreenInfo({ navigation }: { navigation: any }) {
+export default function SignUpScreenInfo() {
 
   return (
     <View style={styles.container}>
