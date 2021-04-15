@@ -4,9 +4,11 @@ import Constants from 'expo-constants';
 
 export const styles = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: Constants.statusBarHeight, 
+    backgroundColor: '#FFFFF',
   },
   input: {
     height: 40,
