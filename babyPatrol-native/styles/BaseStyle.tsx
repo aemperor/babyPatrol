@@ -4,11 +4,9 @@ import Constants from 'expo-constants';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: Constants.statusBarHeight, 
     backgroundColor: '#FFFFFF',
+    marginTop: 'auto',
+    marginBottom: 'auto'
   },
   input: {
     height: 40,
@@ -20,20 +18,15 @@ export const styles = StyleSheet.create({
     margin: 10,
     backgroundColor: '#FFFFFF',
   },
-  button: {
-    width: 200,
-    height: 50,
-    backgroundColor: '#1CD1DD',
-    textAlign: 'center',
-    borderRadius: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 10
-  },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
     color: '#000000',
+  },
+  smallSeperator: {
+    marginVertical: 10,
+    height: 1,
+    width: '80%',
   },
   separator: {
     marginVertical: 30,
@@ -110,6 +103,34 @@ export const styles = StyleSheet.create({
   linkText: {
     fontSize: 14,
     color: '#2e78b7',
+  },
+  subHeadingStyle: {
+    marginLeft: '5%'
+  },
+  headlineStyle: {
+    marginLeft: '5%',
+    marginTop: '15%'
+  },
+  textInput: {
+    fontSize: 14,
+    backgroundColor: '#FFFFFF',
+    width: '90%',
+    justifyContent: 'flex-start',
+    marginTop: 20,
+    marginLeft: '5%'
+  },
+  button: {
+    marginTop: 30,
+    width: '50%',
+    justifyContent: 'flex-start',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginBottom: '10%'
+  },
+  signUpImage: {
+    marginTop: '8%',
+    marginLeft: 'auto',
+    marginRight: 'auto'
   },
 });
 
