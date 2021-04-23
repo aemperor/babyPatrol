@@ -2,10 +2,11 @@ import * as React from 'react';
 import { BottomNavigation, Text } from 'react-native-paper';
 import SignUpScreen from '../screens/SignUpScreen';
 import HomeScreen from '../screens/HomeScreen';
+import LoginScreen from '../screens/LoginScreen';
 
 const SignUpRoute = () => <SignUpScreen />;
 
-const LoginRoute = () => <SignUpRoute />;
+const LoginRoute = () => <LoginScreen />;
 
 const HomeRoute = () => <HomeScreen username='person' />;
 
