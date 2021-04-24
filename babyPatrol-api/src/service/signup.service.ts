@@ -57,7 +57,7 @@ export class SignUpService {
     });
 
     const jwt = sign(
-      { id: userId, email: signUpData.email },
+      { id: userId, email: signUpData.email, authenticated: true },
       this.config.jwtSecret,
       { expiresIn: '1y' }
     );
