@@ -37,7 +37,7 @@ export default function LoginScreenInfo() {
         value={password}
         onChangeText={password => loginInfo.password = password}
         />
-        <View style={[LoginStyle.sideBySide,LoginStyle.color]}>
+        <View style={[LoginStyle.sideBySide,LoginStyle.color, {marginTop:20}]}>
             <View style={[LoginStyle.color,LoginStyle.sideBySide,LoginStyle.checkboxView]}>
                 <CheckBox
                     disabled={false}
@@ -47,6 +47,7 @@ export default function LoginScreenInfo() {
                 />
                 <Text style={[LoginStyle.checkboxText,{alignContent:"flex-end"}]}>Remember Me</Text>
             </View>
+
             <View style={[LoginStyle.color,LoginStyle.buttonView ]}>
                 <Button
                     icon='account'
@@ -84,32 +85,30 @@ const googleLogin = () => {
 }
 
 
-const windowWidth = Dimensions.get('window').width;
-let margin = .10 * windowWidth
+
 const LoginStyle = StyleSheet.create({  
     color: {
         backgroundColor: '#FFFFFF',
     },
     button: {
-        marginTop: "16%",
         width: '90%',
-        marginRight: "auto",
         marginBottom: '10%',
     },
     sideBySide: {
         flexDirection:'row',
     },
     checkboxView: {
-        marginLeft: '3%',
-        marginTop: '8%',
-        flex:1,
+        alignItems:'baseline',
+        justifyContent:"center",
+        flex:1,    
     },
     checkboxText: {
-        marginTop:5,
+        textAlign: "center",
+        alignSelf:'center'
     },
     buttonView: {
         flex:1,
-        alignContent:"flex-end"
+        justifyContent:"center",
     },
     googleButton: {
         backgroundColor: '#4285F4',
