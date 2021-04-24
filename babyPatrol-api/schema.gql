@@ -8,17 +8,14 @@ type HealthCheck {
 }
 
 type Mutation {
-  SignUp(email: String!, firstname: String!, lastname: String!, password: String!, username: String!): SignUp!
+  SignUp(email: String!, firstname: String!, lastname: String!, password: String!, username: String!): SignUpPayload!
 }
 
 type Query {
   HealthCheck: HealthCheck!
 }
 
-type SignUp {
-  email: String!
-  firstname: String!
-  lastname: String!
-  password: String!
+type SignUpPayload {
+  jwt: String!
   username: String!
 }

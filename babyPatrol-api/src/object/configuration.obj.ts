@@ -9,6 +9,8 @@ export class ConfigurationObject {
 
   logLevel: string;
 
+  jwtSecret: string;
+
   constructor( processEnv?: NodeJS.ProcessEnv) {
     this.buildNumber = processEnv.BUILD_NUMBER ? Number(processEnv.BUILD_NUMBER) : 0;
 
@@ -16,5 +18,7 @@ export class ConfigurationObject {
     this.environment = processEnv.ENVIRONMENT;
 
     this.logLevel = processEnv.LOG_LEVEL;
+
+    this.jwtSecret = processEnv.JWT_SECRET;
   }
 }

@@ -1,7 +1,7 @@
 import { Field, ObjectType } from 'type-graphql';
 
 @ObjectType()
-export default class SignUp {
+export class SignUpInput {
   @Field()
   username: string;
 
@@ -16,4 +16,14 @@ export default class SignUp {
 
   @Field()
   email: string;
+}
+
+
+@ObjectType()
+export class SignUpPayload {
+  @Field()
+  username: string;
+
+  @Field()
+  jwt: string;
 }
