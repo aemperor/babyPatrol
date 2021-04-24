@@ -21,15 +21,16 @@ export default function LoginScreenInfo() {
 
 
   return (
-    <View style={[styles.container]}>
+    <View style={[styles.container,{alignItems:'center'}]}>
       <Headline style={styles.headlineStyle}>Login</Headline>
-      <TextInput style={styles.textInput}
+      
+      <TextInput style={LoginStyle.textInput}
         label='Username'
         mode='outlined'
         value={username}
         onChangeText={username => loginInfo.username = username}
       />
-      <TextInput style={styles.textInput}
+      <TextInput style={LoginStyle.textInput}
         label='Password'
         mode='outlined'
         secureTextEntry={true}
@@ -59,6 +60,11 @@ export default function LoginScreenInfo() {
                 </Button>
             </View>
         </View>
+            <Button style={[LoginStyle.googleButton]}
+            color="#FFFFFF"
+            >
+                Login with Google
+            </Button>
     </View>
   );
 }
@@ -72,6 +78,12 @@ const login = (loginInfo : object, checkbox : boolean) => {
     console.log(data);
 }
 
+
+const googleLogin = () => {
+    console.log('Google button has been pushed.');
+}
+
+
 const windowWidth = Dimensions.get('window').width;
 let margin = .10 * windowWidth
 const LoginStyle = StyleSheet.create({  
@@ -79,9 +91,8 @@ const LoginStyle = StyleSheet.create({
         backgroundColor: '#FFFFFF',
     },
     button: {
-        marginTop: 30,
+        marginTop: "16%",
         width: '90%',
-        justifyContent: 'flex-end',
         marginRight: "auto",
         marginBottom: '10%',
     },
@@ -89,10 +100,9 @@ const LoginStyle = StyleSheet.create({
         flexDirection:'row',
     },
     checkboxView: {
-        marginLeft: 12,
-        marginTop: 30,
+        marginLeft: '3%',
+        marginTop: '8%',
         flex:1,
-        justifyContent:"flex-start",
     },
     checkboxText: {
         marginTop:5,
@@ -101,4 +111,16 @@ const LoginStyle = StyleSheet.create({
         flex:1,
         alignContent:"flex-end"
     },
+    googleButton: {
+        backgroundColor: '#4285F4',
+        width: '60%',
+        color: '#FFFFFF',
+    },
+    textInput: {
+        fontSize: 14,
+        backgroundColor: '#FFFFFF',
+        width: '90%',
+        justifyContent: 'flex-start',
+        marginTop: 20,
+    }
 });
