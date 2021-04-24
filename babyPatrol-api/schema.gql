@@ -7,7 +7,13 @@ type HealthCheck {
   status: String!
 }
 
+type LoginPayload {
+  jwt: String!
+  username: String!
+}
+
 type Mutation {
+  Login(password: String!, username: String!): LoginPayload!
   SignUp(email: String!, firstname: String!, lastname: String!, password: String!, username: String!): SignUpPayload!
 }
 

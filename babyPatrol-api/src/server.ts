@@ -3,6 +3,7 @@ import * as AWS from 'aws-sdk';
 import { container } from 'tsyringe';
 import { buildSchema } from 'type-graphql';
 import { SignUpResolver } from './resolver/signup.resolver';
+import { LoginResolver } from './resolver/login.resolver';
 import { GraphQLSchema } from 'graphql';
 import { HealthCheckResolver } from './resolver/healthcheck.resolver';
 import { ConfigurationObject } from './object/configuration.obj';
@@ -40,6 +41,7 @@ async function getSchema() : Promise<GraphQLSchema> {
     resolvers: [
       HealthCheckResolver,
       SignUpResolver,
+      LoginResolver
     ],
     container: { get: someClass => container.resolve(someClass as any) },
     emitSchemaFile: true,
