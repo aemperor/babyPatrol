@@ -8,20 +8,15 @@ import { styles } from '../styles/BaseStyle';
 const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
 
 export default function Login() {
-    const style = styles.container;
-    const baseStyle = {style, flex: 1};
-
-
     
-
- return(
-  <View style={baseStyle}>
-    <Appbar.Header>
-      <Appbar.Content title="Login"/>
-    </Appbar.Header>
-    <LoginScreenInfo />
-  </View>
- );
+    return(
+        <View style={[ styles.container]}>
+            <Appbar.Header>
+                <Appbar.Content title="Login"/>
+            </Appbar.Header>
+            <LoginScreenInfo />
+        </View>
+    );
 
 }
 
