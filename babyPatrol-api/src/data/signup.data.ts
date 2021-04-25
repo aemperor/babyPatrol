@@ -5,3 +5,9 @@ export interface SignUpData {
   password: string,
   email: string
 };
+
+
+export interface SignUpResultData {
+  username: string,
+  jwt: string,
+}

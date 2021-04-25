@@ -1,16 +1,13 @@
 mutation {
   SignUp(
-    email: "fancyTragedy@test.com", 
+    email: "fancyTragedy1@test.com", 
     firstname: "fancy",
     lastname: "tragedy",
-    username: "fancy.tragedy",
+    username: "fancy.tragedy1",
     password: "tragedy"
   ) {
-    email,
-    password,
     username,
-    firstname,
-    lastname
+    jwt
   }
 }
 

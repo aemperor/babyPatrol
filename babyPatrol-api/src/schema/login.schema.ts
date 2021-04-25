@@ -1,26 +1,16 @@
 import { Field, ObjectType } from 'type-graphql';
 
 @ObjectType()
-export class SignUpInput {
+export class LoginInput {
   @Field()
   username: string;
 
   @Field()
-  firstname: string;
-
-  @Field()
-  lastname: string;
-
-  @Field()
   password: string;
-
-  @Field()
-  email: string;
 }
 
-
 @ObjectType()
-export class SignUpPayload {
+export class LoginPayload {
   @Field()
   username: string;
 
