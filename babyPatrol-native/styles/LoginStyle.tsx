@@ -18,7 +18,8 @@ export const loginStyle = StyleSheet.create({
     },
     checkboxText: {
         textAlign: "center",
-        alignSelf:'center'
+        alignSelf:'center',
+        alignContent:"flex-end",
     },
     buttonView: {
         flex:1,
@@ -35,6 +36,12 @@ export const loginStyle = StyleSheet.create({
         width: '90%',
         justifyContent: 'flex-start',
         marginTop: 20,
+    },
+    buttonCheckboxArea: {
+        flexDirection:'row',
+        backgroundColor: '#FFFFFF',
+        marginTop:20,
     }
+
 });
 

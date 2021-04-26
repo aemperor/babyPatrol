@@ -5,7 +5,8 @@ import Constants from 'expo-constants';
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
-    flex:1,
+    marginTop: 'auto',
+    marginBottom: 'auto',
   },
   input: {
     height: 40,

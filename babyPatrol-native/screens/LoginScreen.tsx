@@ -8,9 +8,14 @@ import { styles } from '../styles/BaseStyle';
 const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
 
 export default function Login() {
+
+    const appliedStyles = [ 
+        styles.container,
+        {flex:1}
+    ];
     
     return(
-        <View style={[ styles.container]}>
+        <View style={appliedStyles}>
             <Appbar.Header>
                 <Appbar.Content title="Login"/>
             </Appbar.Header>
