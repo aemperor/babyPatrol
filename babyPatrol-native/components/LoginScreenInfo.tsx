@@ -44,7 +44,6 @@ export default function LoginScreenInfo() {
                     disabled={false}
                     status={willSaveUser ? "checked" : "unchecked"}
                     onPress={() => toggleWillSaveUser(!willSaveUser)}
-                    // style={{alignContent:"flex-start"}}
                 />
                 <Text style={[LoginStyle.checkboxText,{alignContent:"flex-end"}]}>Remember Me</Text>
             </View>
