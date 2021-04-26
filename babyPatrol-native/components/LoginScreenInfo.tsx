@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {Text,StyleSheet,Dimensions} from "react-native"
-import CheckBox from '@react-native-community/checkbox';
+// import CheckBox from '@react-native-community/checkbox';
 import { Headline, Subheading, TextInput, Button, Avatar } from 'react-native-paper';
+import { Checkbox } from 'react-native-paper';
 
 import { View } from './Themed';
 
@@ -39,11 +40,11 @@ export default function LoginScreenInfo() {
         />
         <View style={[LoginStyle.sideBySide,LoginStyle.color, {marginTop:20}]}>
             <View style={[LoginStyle.color,LoginStyle.sideBySide,LoginStyle.checkboxView]}>
-                <CheckBox
+                <Checkbox
                     disabled={false}
-                    value={willSaveUser}
-                    onValueChange={(newValue) => toggleWillSaveUser(newValue)}
-                    style={{alignContent:"flex-start"}}
+                    status={willSaveUser ? "checked" : "unchecked"}
+                    onPress={() => toggleWillSaveUser(!willSaveUser)}
+                    // style={{alignContent:"flex-start"}}
                 />
                 <Text style={[LoginStyle.checkboxText,{alignContent:"flex-end"}]}>Remember Me</Text>
             </View>
@@ -74,7 +75,6 @@ const login = (loginInfo : object, checkbox : boolean) => {
     const data =  {
         loginInfo,
         checkbox: checkbox,
-        windowWidth: .05 * windowWidth,
     };
     console.log(data);
 }
