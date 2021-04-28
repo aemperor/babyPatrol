@@ -34,10 +34,12 @@ export default function SignUpScreenInfo() {
       console.log(`Response JWT : ${jwt}`);
       console.log(`Response Username : ${username}`);
       if (jwt && username) {
-        navigation.navigate('Root', {
-          screen: 'HomeScreen',
-          params: { username }
-        });
+        navigation.navigate('Home', {
+            username
+        }); 
+      } else {
+        // TODO: do we prompt again?
+        throw new Error('You done goofed');
       }
 
     }).catch((ex) => {
@@ -67,19 +69,28 @@ export default function SignUpScreenInfo() {
       <TextInput style={styles.textInput}
         label='Username'
         mode='outlined'
+        autoCorrect={false}
+        autoCapitalize='none'
         value={username}
         onChangeText={username => setUsername(username)}
       />
       <TextInput style={styles.textInput}
         label='E-mail'
         mode='outlined'
+        textContentType='emailAddress'
+        keyboardType='email-address'
+        autoCapitalize='none'
+        autoCorrect={false}
+        autoCompleteType='email'
         value={email}
         onChangeText={email => setEmail(email)}
       />
       <TextInput style={styles.textInput}
         label='Password'
         mode='outlined'
+        autoCorrect={false}
         secureTextEntry={true}
+        autoCapitalize='none'
         value={password}
         onChangeText={password => setPassword(password)}
       />
