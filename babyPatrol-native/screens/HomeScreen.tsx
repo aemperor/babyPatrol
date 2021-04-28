@@ -1,17 +1,20 @@
 import * as React from 'react';
-
-import HomeScreenInfo from '../components/HomeScreenInfo';
-import { Text, View } from '../components/Themed';
-
+import { Appbar } from 'react-native-paper';
+import { Platform } from 'react-native';
+import { View } from '../components/Themed';
 import { styles } from '../styles/BaseStyle';
+import HomeScreenInfo from '../components/HomeScreenInfo';
 
-export default function HomeScreen({ username }: { username:string }) {
-  return (
-    <View style={styles.container}> 
-      <Text style={styles.title}>Welcome, {username}!</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <HomeScreenInfo path="/screens/HomeScreen.tsx" /> 
+const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
+
+export default function Home() {
+  const username = 'myUser'; // TODO: pull from redux
+  return(
+    <View style={styles.homeContainer}>
+      <Appbar.Header>
+        <Appbar.Content title="Home"/>
+      </Appbar.Header>
+      <HomeScreenInfo username={ username }/>
     </View>
   );
 }
- 
