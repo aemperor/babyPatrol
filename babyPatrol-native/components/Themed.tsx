@@ -45,5 +45,5 @@ export function ScrollView(props: ScrollViewProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
   const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
 
-  return <DefaultScrollView style={[{ backgroundColor }, style]} {...otherProps} />;
+  return <DefaultScrollView keyboardShouldPersistTaps={true} style={[{ backgroundColor }, style]} {...otherProps} />;
 }
