@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
     marginTop: 'auto',
-    marginBottom: 'auto'
+    marginBottom: 'auto',
   },
   input: {
     height: 40,
