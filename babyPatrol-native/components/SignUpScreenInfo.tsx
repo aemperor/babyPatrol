@@ -18,16 +18,13 @@ export default function SignUpScreenInfo() {
   const [SignUp, { data }] = useMutation(SIGN_UP);
 
   const submitSignUp = (signUpInfo : any) => {
-    console.log(signUpInfo);
-
     SignUp({ variables: {
       email: signUpInfo.email,
       firstname: signUpInfo.firstname,
       lastname: signUpInfo.lastname,
       username: signUpInfo.username,
       password: signUpInfo.password
-    }})
-    .then((response) => {
+    }}).then((response) => {
       const jwt = response.data.SignUp.jwt;
       const username = response.data.SignUp.username;
       // TODO: store these in REDUX and persist JWT in local storage
