@@ -3,6 +3,10 @@ import Constants from 'expo-constants';
 
 
 export const styles = StyleSheet.create({
+  homeContainer: {
+    backgroundColor: '#FFFFFF',
+    marginTop: 0,
+  },
   container: {
     backgroundColor: '#FFFFFF',
     marginTop: 'auto',

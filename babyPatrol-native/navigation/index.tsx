@@ -4,9 +4,12 @@ import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
 
 import NotFoundScreen from '../screens/NotFoundScreen';
-import { RootStackParamList } from '../types';
+import { RootStackParamList } from './navigationParamList';
 import BottomTabNavigation from './BottomTabNavigation';
 import LinkingConfiguration from './LinkingConfiguration';
+import Home from '../screens/HomeScreen';
+import Login from '../screens/LoginScreen';
+import SignUp from '../screens/SignUpScreen';
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -28,6 +31,9 @@ function RootNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Root" component={BottomTabNavigation} />
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );
