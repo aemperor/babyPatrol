@@ -4,7 +4,6 @@ import { ConfigurationObject } from '../object/configuration.obj';
 import { DynamoDBService } from './dynamodb.service';
 import { LoggerService } from './logger.service';
 import { GetItemInput, Key } from 'aws-sdk/clients/dynamodb';
-import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { PasswordService } from './password.service';
 
