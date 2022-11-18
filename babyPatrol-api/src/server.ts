@@ -17,8 +17,8 @@ require('dotenv').config( { path : process.env.BABY_PATROL_DOTENV_PATH } );
 
 // TODO: make this secure
 const credentials = new AWS.Credentials({
-  accessKeyId: 'AKIAX25LO47N53QA4KGS',
-  secretAccessKey: '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'
+  accessKeyId: '',
+  secretAccessKey: ''
 });
 
 AWS.config.update({
